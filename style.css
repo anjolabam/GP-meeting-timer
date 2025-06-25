@@ -1,0 +1,369 @@
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: linear-gradient(to right, #f4f0ff, #e8f9ff);
+  display: flex;
+  justify-content: center;
+  padding: 2em 1em;
+  margin: 0;
+  min-height: 100vh;
+  overflow-y: auto;
+}
+
+.container {
+  background: #ffffff;
+  padding: 2em;
+  border-radius: 20px;
+  width: 460px;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+h1 {
+  color: #3b3b59;
+  margin-bottom: 1.5em;
+  font-weight: 700;
+}
+
+.add-agenda input {
+  padding: 0.6em;
+  margin: 0.4em;
+  width: 130px;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  font-family: inherit;
+}
+
+.add-agenda button {
+  padding: 0.6em 1em;
+  background: #c1d3fe;
+  color: #2f2f46;
+  font-weight: 500;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.add-agenda button:hover {
+  background: #a6bff2;
+}
+
+#agenda-list {
+  list-style: none;
+  padding: 0;
+  text-align: left;
+  margin-top: 1em;
+}
+
+#agenda-list li {
+  background: #f5f8ff;
+  padding: 0.7em 1em;
+  margin-bottom: 0.5em;
+  border-radius: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background 0.2s ease;
+}
+
+#agenda-list li.active {
+  background: #dbe9ff;
+  border-left: 4px solid #7eafff;
+  font-weight: 600;
+}
+
+#agenda-list li button i {
+  color: #7eafff;
+  font-size: 1.1em;
+  margin-left: 0.3em;
+}
+
+.controls button {
+  margin: 0.3em;
+  padding: 0.6em 1.4em;
+  font-size: 1em;
+  background: #b8e0d2;
+  color: #2c3d35;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.controls button:hover {
+  background: #9ed7c2;
+}
+
+#current-timer {
+  font-size: 3.2em;
+  font-weight: 700;
+  color: #3b3b59;
+  margin-top: 1.5em;
+}
+
+#warning-message {
+  margin-top: 0.7em;
+  font-weight: 600;
+  font-size: 1.1em;
+  color: #d7263d;
+}
+
+#now-showing {
+  margin-top: 0.5em;
+  font-style: italic;
+  color: #5b5b75;
+}
+
+#total-duration {
+  font-weight: 600;
+  color: #4e4e6a;
+}
+
+.page-layout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5em;
+  padding: 2em;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 1em;
+}
+
+.logo {
+  max-width: 120px;
+  margin-bottom: 0.5em;
+}
+
+.main-content {
+  display: flex;
+  justify-content: space-between;
+  gap: 2em;
+  width: 100%;
+}
+
+.agenda-section {
+  flex: 1;
+  max-height: 500px;
+  overflow-y: auto;
+  padding-right: 1em;
+}
+
+/* Optional title styling if you add an <h2> above the list */
+.agenda-section h2 {
+  margin-bottom: 0.5em;
+  color: #3b3b59;
+  font-size: 1.2em;
+  font-weight: 600;
+}
+
+/* Style for the whole list container */
+#agenda-list {
+  background: #ffffff;
+  padding: 1em;
+  border-radius: 14px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.05);
+}
+
+/* Style for each item */
+#agenda-list li {
+  background: #f5f8ff;
+  padding: 0.7em 1em;
+  margin-bottom: 0.5em;
+  border-radius: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background 0.2s ease;
+}
+
+#agenda-list li.active {
+  background: #dbe9ff;
+  border-left: 4px solid #7eafff;
+  font-weight: 600;
+}
+
+#agenda-list li button iconify-icon {
+  color: #7eafff;
+  font-size: 1.1em;
+  margin-left: 0.3em;
+}
+
+.agenda-title {
+  text-align: center;
+  margin-bottom: 0.8em;
+  font-size: 1.5em;
+  color: #3b3b59;
+}
+
+
+.timer-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.timer-box {
+  background: #f3f8ff;
+  border: 2px solid #c2e0ff;
+  border-radius: 16px;
+  padding: 1em 1.2em;
+  text-align: center;
+  margin-bottom: 1em;
+  max-width: 300px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+
+.timer-box #current-timer {
+  font-size: 3em;
+  font-weight: 700;
+  color: #324b67;
+  font-family: 'DM Sans', monospace;
+  width: 8ch;
+  display: inline-block;
+  text-align: center;
+}
+
+
+.timer-box #warning-message {
+  margin-top: 0.3em;
+  color: #d7263d;
+  font-weight: bold;
+}
+
+.timer-box #now-showing {
+  font-style: italic;
+  color: #5b5b75;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5em;
+}
+
+.timer-box #current-timer {
+  font-size: 3em;
+  font-weight: 700;
+  margin: 0;
+  color: #324b67;
+  font-family: 'DM Sans', monospace;
+  min-width: 6ch; /* prevents layout shifting */
+  text-align: center;
+}
+
+.flash {
+  animation: flashText 1s infinite alternate;
+}
+
+@keyframes flashText {
+  0% {
+    opacity: 1;
+    color: #d7263d;
+  }
+  100% {
+    opacity: 0.3;
+    color: #d7263d;
+  }
+}
+
+.next-up {
+  margin-top: 0.2em;
+  font-style: italic;
+  color: #888;
+}
+
+.hidden-agenda {
+  display: none;
+}
+
+.floating-timer {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 999;
+  background: #ffffff;
+  padding: 2em;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  max-width: 350px;
+  text-align: center;
+}
+
+
+.meeting-toggle {
+  padding: 0.6em 1.4em;
+  background: #d7e3fc;
+  color: #1e2b4f;
+  font-weight: 600;
+  font-size: 0.95em;
+  border: none;
+  border-radius: 24px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-bottom: 1em;
+}
+
+.meeting-toggle:hover {
+  background: #b9d0f5;
+}
+
+.meeting-mode-container {
+  margin-top: 1em;
+  text-align: center;
+}
+
+.meeting-mode-button {
+  padding: 0.6em 1.4em;
+  font-size: 1em;
+  font-family: 'DM Sans', sans-serif;
+  background: #b8e0d2;
+  color: #2c3d35;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.meeting-mode-layout {
+  flex-direction: column;
+  align-items: center;
+}
+
+.meeting-mode-layout .agenda-section {
+  display: none;
+}
+
+.meeting-mode .add-agenda {
+  display: none;
+}
+
+.meeting-mode-layout .timer-section {
+  width: 100%;
+  max-width: 480px;
+}
+
+
+.meeting-mode-button:hover {
+  background: #9ed7c2;
+}
+
+.agenda-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.agenda-title-clickable {
+  cursor: pointer;
+  flex: 1;
+  margin-right: 1em;
+}

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title> Genome Prairie Meeting Timer </title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>  
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+</head>
+
+<body>
+<div class="page-layout">
+  <div class="content-wrapper">
+  <!-- Top Centered Header Section -->
+  <header class="header">
+    <h1>Genome Prairie Meeting Timer</h1>
+    <p id="current-date"></p>
+    <div class="add-agenda">
+      <input type="text" id="agenda-title" placeholder="Agenda item title">
+      <input type="number" id="agenda-duration" placeholder="Minutes" min="1">
+      <button onclick="addAgendaItem()">Add to Agenda</button>
+    </div>
+    <p id="total-duration">Total: 0 min</p>
+  </header>
+
+  <!-- Main Content Grid -->
+  <main class="main-content" id="main-layout">
+    <!-- Agenda List Left -->
+    <section class="agenda-section">
+  <h2 class="agenda-title">Agenda</h2>
+  <ul id="agenda-list"></ul>
+</section>
+
+
+    <!-- Timer + Controls Right -->
+    <section class="timer-section">
+      <div class="timer-box">
+  <p id="current-timer">00:00</p>
+  <p id="warning-message"></p>
+  <p id="now-showing">Now: --</p>
+  <p id="next-up" class="next-up">Next up: —</p>
+</div>
+
+      <div class="controls">
+  <button onclick="prevItem()"><iconify-icon icon="material-symbols:arrow-back-rounded" width="24"></iconify-icon></button>
+  <button onclick="startTimer()"><iconify-icon icon="material-symbols:play-arrow-rounded" width="24"></iconify-icon></button>
+  <button onclick="pauseTimer()"><iconify-icon icon="material-symbols:pause-rounded" width="24"></iconify-icon></button>
+  <button onclick="resetTimer()"><iconify-icon icon="material-symbols:restart-alt-rounded" width="24"></iconify-icon></button>
+  <button onclick="nextItem()"><iconify-icon icon="material-symbols:arrow-forward-rounded" width="24"></iconify-icon></button>
+</div>
+
+<!-- Move this BELOW the controls -->
+<div class="meeting-mode-container">
+  <button onclick="toggleMeetingMode()" class="meeting-mode-button">🎯 Meeting Mode</button>
+</div>
+
+    </section>
+</main>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
+
