@@ -141,16 +141,19 @@ function addAgendaItem() {
 
   agenda.push({ title: title, duration: minutes * 60 });
 
-  // If it's the first item, initialize
   if (agenda.length === 1) {
     currentIndex = 0;
     remaining = agenda[0].duration;
   }
 
+  // Clear form fields
+  document.getElementById("agenda-title").value = "";
+  document.getElementById("agenda-duration").value = "";
+
   syncState();
   updateUI();
-
 }
+
 
 // UI updates
 function updateUI() {
