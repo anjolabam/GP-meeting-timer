@@ -6,12 +6,21 @@ const firebaseConfig = {
   projectId: "meeting-timer-f1a5c",
   storageBucket: "meeting-timer-f1a5c.firebasestorage.app",
   messagingSenderId: "383506528786",
-  appId: "1:383506528786:web:d50e103dd1687ef34a36cb"
+  appId: "1:383506528786:web:644c6212d0a67d0e4a36cb"
 };
 
 firebase.initializeApp(firebaseConfig);
-const db = firebase.database();
-const ref = db.ref("agendaTimer");
+
+// ✅ Sign in anonymously (for Firebase v8)
+firebase.auth().signInAnonymously()
+  .then(() => {
+    console.log("Signed in anonymously");
+  })
+  .catch((error) => {
+    console.error("Anonymous sign-in failed:", error);
+  });
+
+const ref = firebase.database().ref("agendaTimer");
 
 let agenda = [];
 let currentIndex = 0;
