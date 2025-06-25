@@ -63,6 +63,31 @@
 </div>
 
 <script src="script.js"></script>
+
+<!-- Edit Modal -->
+<div id="edit-modal" class="modal hidden">
+  <div class="modal-content">
+    <h3>Edit Agenda Item</h3>
+    <input type="text" id="edit-title" placeholder="Title">
+    <input type="number" id="edit-duration" placeholder="Minutes" min="1">
+    <div class="modal-buttons">
+      <button onclick="saveEdit()">Save</button>
+      <button onclick="closeModal('edit-modal')">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<!-- Delete Modal -->
+<div id="delete-modal" class="modal hidden">
+  <div class="modal-content">
+    <p>Are you sure you want to delete this item?</p>
+    <div class="modal-buttons">
+      <button onclick="confirmDelete()">Yes, delete</button>
+      <button onclick="closeModal('delete-modal')">Cancel</button>
+    </div>
+  </div>
+</div>
+
 </body>
 </html>
 

@@ -229,41 +229,58 @@ document.getElementById("total-duration").innerText = totalMessage;
 } // ← This closes updateUI()
 
 
+let deleteIndex = null;
+
 function deleteItem(index) {
-  if (confirm("Are you sure you want to delete this item?")) {
-    agenda.splice(index, 1);
-
-    if (currentIndex >= agenda.length) {
-      currentIndex = agenda.length - 1;
-    }
-
-    if (agenda.length > 0) {
-      remaining = agenda[currentIndex].duration;
-    } else {
-      remaining = 0;
-      currentIndex = 0;
-    }
-
-    running = false;
-    syncState();
-    updateUI();
-  }
+  deleteIndex = index;
+  openModal("delete-modal");
 }
 
+function confirmDelete() {
+  agenda.splice(deleteIndex, 1);
+
+  if (currentIndex >= agenda.length) {
+    currentIndex = agenda.length - 1;
+  }
+
+  if (agenda.length > 0) {
+    remaining = agenda[currentIndex].duration;
+  } else {
+    remaining = 0;
+    currentIndex = 0;
+  }
+
+  running = false;
+  syncState();
+  updateUI();
+  closeModal("delete-modal");
+}
+
+
+let editIndex = null;
+
 function editItem(index) {
-  const newTitle = prompt("Edit title:", agenda[index].title);
-  const newDuration = prompt("Edit duration in minutes:", agenda[index].duration / 60);
+  editIndex = index;
+  document.getElementById("edit-title").value = agenda[index].title;
+  document.getElementById("edit-duration").value = agenda[index].duration / 60;
+  openModal("edit-modal");
+}
 
-  if (newTitle && !isNaN(newDuration) && Number(newDuration) > 0) {
-    agenda[index].title = newTitle.trim();
-    agenda[index].duration = Number(newDuration) * 60;
+function saveEdit() {
+  const newTitle = document.getElementById("edit-title").value.trim();
+  const newDuration = parseInt(document.getElementById("edit-duration").value);
 
-    if (index === currentIndex) {
-      remaining = agenda[index].duration;
+  if (newTitle && !isNaN(newDuration) && newDuration > 0) {
+    agenda[editIndex].title = newTitle;
+    agenda[editIndex].duration = newDuration * 60;
+
+    if (editIndex === currentIndex) {
+      remaining = agenda[editIndex].duration;
     }
 
     syncState();
     updateUI();
+    closeModal("edit-modal");
   } else {
     alert("Invalid input. Item not updated.");
   }
@@ -292,4 +309,12 @@ function toggleMeetingMode() {
 
   layout.classList.toggle("meeting-mode-layout");
   body.classList.toggle("meeting-mode");
+}
+
+function openModal(id) {
+  document.getElementById(id).classList.remove("hidden");
+}
+
+function closeModal(id) {
+  document.getElementById(id).classList.add("hidden");
 }
