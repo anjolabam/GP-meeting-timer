@@ -112,6 +112,8 @@ function resetTimer() {
 }
 
 function nextItem() {
+document.getElementById("warning-message").innerText = "";
+  document.getElementById("warning-message").classList.remove("flash");
   if (currentIndex < agenda.length - 1) {
     currentIndex++;
     remaining = agenda[currentIndex].duration;
@@ -120,7 +122,10 @@ function nextItem() {
   }
 }
 
-function prevItem() {
+function prevItem()
+ {
+  document.getElementById("warning-message").innerText = "";
+  document.getElementById("warning-message").classList.remove("flash");
   if (currentIndex > 0) {
     currentIndex--;
     remaining = agenda[currentIndex].duration;
@@ -290,6 +295,8 @@ function saveEdit() {
 }
 
 function jumpToItem(index) {
+document.getElementById("warning-message").innerText = "";
+  document.getElementById("warning-message").classList.remove("flash");
   currentIndex = index;
   remaining = agenda[index].duration;
   running = false;
